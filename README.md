@@ -1,5 +1,7 @@
 # words-cli [![npm-version][npm-badge]][npm-link]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/amio/words-cli.svg)](https://greenkeeper.io/)
+
 Find words with wilcard.
 
 ## Install
