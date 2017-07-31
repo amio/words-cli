@@ -1,4 +1,4 @@
-# words-cli
+# words-cli [![npm-version][npm-badge]][npm-link]
 
 Find words with wilcard.
 
@@ -26,4 +26,6 @@ npm install -g words-cli
 
 MIT @ [Amio][author]
 
-[author]: https://github.com/amio
+[npm-badge]:  https://img.shields.io/npm/v/words-cli.svg?style=flat-square
+[npm-link]:   http://www.npmjs.com/package/words-cli
+[author]:     https://github.com/amio
