@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+
+const parseArgs = require('mri')
+const wordsMatch = require('../')
+
+const flags = parseArgs(process.argv.slice(2), {
+  boolean: ['help', 'version'],
+  alias: {
+    h: 'help',
+    v: 'version'
+  },
+  unknown (flag) {
+    console.log(`The option "${flag}" is unknown. Use one of these:`)
+    console.log(generateHelp())
+    process.exit(1)
+  }
+})
+
+// When `-h` or `--help` are used, print out
+// the usage information
+if (flags.help) {
+  console.log(generateHelp())
+  process.exit()
+}
+
+// Print out the package's version when
+// `--version` or `-v` are used
+if (flags.version) {
+  console.log(require('package.json').version)
+  process.exit()
+}
+
+const wildcard = flags._[0]
+
+if (wildcard) {
+  const results = wordsMatch(wildcard)
+  console.log(results.join(', '))
+} else {
+  console.log(generateHelp())
+}
+
+function generateHelp () {
+  const bold = text => `\x1b[32m${text}\x1b[0m`
+
+  return `
+    USAGE
+
+      ${bold('words')} [wildcard]
+
+    EXAMPLE
+
+      ${bold('words "*am"')}    Find words ending with 'am'
+      ${bold('words "??am"')}   Find words ending with 'am' of length 4
+      ${bold('words "*??am"')}  Find words ending with 'am' of length 4+
+  `
+}
