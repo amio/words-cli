@@ -3,9 +3,7 @@
   "version": "1.0.0-alpha.1",
   "description": "Find words with wilcard.",
   "main": "index.js",
-  "bin": {
-    "words": "bin/words"
-  },
+  "bin": "./bin/words",
   "author": "Amio <amio.cn@gmail.com>",
   "license": "ISC",
   "dependencies": {
