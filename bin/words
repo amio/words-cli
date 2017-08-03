@@ -33,8 +33,9 @@ if (flags.version) {
 const wildcard = flags._[0]
 
 if (wildcard) {
-  const results = wordsMatch(wildcard)
-  console.log(results.join(', '))
+  wordsMatch(wildcard).then(results => {
+    console.log(results.join('\n'))
+  }).catch(e => console.error(e))
 } else {
   console.log(generateHelp())
 }
